@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_pokedex_sample/themes/theme_style.dart';
 import 'package:flutter_pokedex_sample/features/pokemon/domain/entities/pokemon.dart';
 
 class PokemonSize extends StatelessWidget {
@@ -56,9 +57,7 @@ class _SizeCard extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                fontWeight: FontWeight.w500,
-              ),
+              style: textMedium,
             ),
             const SizedBox(height: 4),
             Text(description),

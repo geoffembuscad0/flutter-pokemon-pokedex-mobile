@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_pokedex_sample/themes/theme_style.dart';
 
 class MessageDisplay extends StatelessWidget {
   final String message;
@@ -11,6 +13,7 @@ class MessageDisplay extends StatelessWidget {
       child: Text(
         message,
         textAlign: TextAlign.center,
+        style: defaultFont
       ),
     );
   }

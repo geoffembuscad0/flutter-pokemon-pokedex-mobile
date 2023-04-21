@@ -26,7 +26,7 @@ class _PokemonSearchState extends State<PokemonSearch> {
           borderRadius: BorderRadius.circular(12),
         ),
         labelText: 'Pokémon',
-        hintText: 'ej: pikachu, ditto, 1',
+        hintText: 'Pikachu, Ditto, Raichu',
         suffixIcon: const Icon(Icons.search),
       ),
     );

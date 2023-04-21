@@ -19,7 +19,7 @@ class PokemonImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FadeInImage(
-      imageSemanticLabel: 'Ilustración de ${pokemon.name}',
+      imageSemanticLabel: 'Image of ${pokemon.name}',
       placeholder: const AssetImage('images/loading.gif'),
       image: CachedNetworkImageProvider(
         pokemon.sprites.other.officialArtwork.frontDefault,

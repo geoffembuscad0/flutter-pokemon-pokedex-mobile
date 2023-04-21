@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_pokedex_sample/themes/theme_style.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_pokedex_sample/features/pokemon/presentation/bloc/bloc.dart';
@@ -13,19 +13,22 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String title = "Pokédex";
+    String listFavorites = 'Favorites List';
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            title: const Text('Tu Pokédex'),
+            title: Text(title, style: appTitleBar ),
             actions: [
               PopupMenuButton(
                 itemBuilder: (context) {
                   return [
-                    const PopupMenuItem(
+                    PopupMenuItem(
                       value: 0,
-                      child: Text('Lista de Favoritos'),
+                      child: Text(listFavorites, style: favoriteListTextStyle ),
                     )
                   ];
                 },
@@ -66,14 +69,14 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    String searchBodyLabel = 'Search for a Pokémon by its name or using its Pokédex number';
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Busca un Pokémon por su nombre o utilizando su número de Pokédex.',
-          style: textTheme.bodyLarge,
+          searchBodyLabel,
+          style: searchLabelText //textTheme.bodyLarge,
         ),
         const SizedBox(height: 24),
         const PokemonSearch()
@@ -99,7 +102,7 @@ class _Content extends StatelessWidget {
           return PokemonDisplay(pokemon: state.pokemon);
         }
 
-        return const MessageDisplay(message: 'No has buscado un Pokémon aún');
+        return const MessageDisplay(message: 'You haven\'t searched for a Pokémon yet');
       },
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_pokedex_sample/core/utils/utils.dart';
 import 'package:flutter_pokedex_sample/features/pokemon/domain/entities/pokemon_stat.dart';
+import 'package:flutter_pokedex_sample/themes/theme_style.dart';
 
 const maxBaseStat = 255;
 
@@ -42,21 +43,14 @@ class _StatItem extends StatelessWidget {
               '-',
               ' ',
             ),
-            style: TextStyle(
-              color: Colors.grey.shade600,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
+            style: pokemonStatisticAttribute,
           ),
         ),
         SizedBox(
           width: 48,
           child: Text(
             '${pokemonStat.baseStat}',
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
+            style: pokemonStatisticBaseStat,
           ),
         ),
         Expanded(child: _StatIndicator(pokemonStat.baseStat)),

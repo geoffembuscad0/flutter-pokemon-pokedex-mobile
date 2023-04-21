@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:flutter_pokedex_sample/themes/theme_style.dart';
 import 'package:flutter_pokedex_sample/core/utils/utils.dart';
 import 'package:flutter_pokedex_sample/features/pokemon/domain/entities/pokemon.dart';
 import 'package:flutter_pokedex_sample/features/pokemon/presentation/bloc/bloc.dart';
@@ -56,11 +56,11 @@ class _PokemonFavoriteAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     IconData icon = Icons.favorite_border_rounded;
-    Color color = Colors.grey;
+    Color color = colorGray;
 
     if (pokemon.isFavorite) {
       icon = Icons.favorite;
-      color = Colors.red;
+      color = colorPurple;
     }
 
     return IconButton(
@@ -87,18 +87,11 @@ class _PokemonHeader extends StatelessWidget {
           children: [
             Text(
               toTitleCase(pokemon.name, separator: '-'),
-              style: const TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.w700,
-              ),
+              style: pokemonNameText,
             ),
             Text(
               '#${pokemon.id}',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: Colors.grey.shade600,
-              ),
+              style: pokemonIdText,
             ),
           ],
         ),
@@ -116,21 +109,23 @@ class _PokemonAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const subtitleTextStyle = TextStyle(fontSize: 24);
+
+    String sizeText = 'Size';
+    String statisticsText = 'Statistics';
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Tamaño',
-          style: subtitleTextStyle,
+        Text(
+          sizeText,
+          style: subtitleText,
         ),
         const SizedBox(height: 16),
         PokemonSize(pokemon: pokemon),
         const SizedBox(height: 24),
-        const Text(
-          'Estadísticas',
-          style: subtitleTextStyle,
+        Text(
+          statisticsText,
+          style: subtitleText,
         ),
         const SizedBox(height: 16),
         StatsList(stats: pokemon.stats),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_pokedex_sample/themes/theme_style.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_pokedex_sample/features/pokemon/presentation/bloc/bloc.dart';
@@ -14,11 +14,12 @@ class FavoritesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String favoritesTxt = 'Favorites';
     return BlocProvider(
       create: (context) => di.sl<FavoritesBloc>(),
       child: Scaffold(
           appBar: AppBar(
-            title: const Text('Favoritos'),
+            title: Text(favoritesTxt, style: appTitleBar),
           ),
           body: Padding(
             padding: const EdgeInsets.all(24),
